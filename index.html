@@ -1,9 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<title>Knockout.js Tutorial</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<script type='text/javascript' src='knockout-3.4.2.js'></script>
 </head>
 <body>
 
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<br>
+			<br>
+			<label data-bind="text: labelText">Label</label>
+			<input type="text" data-bind="value: inputValue"/>
+			<br>
+			<button class="btn btn-primary" data-bind="click:buttonAction">Ação</button>
+		</div>
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+	
+	function ViewModel(){
+		var self = this;
+		self.labelText = "Label text";
+		self.inputValue = "Input value";
+		self.buttonAction = function(){
+			console.log("Button clicked");
+		};
+	}
+
+	vm = new ViewModel();
+
+	ko.applyBindings(vm);
+
+
+</script>
 </body>
 </html>
